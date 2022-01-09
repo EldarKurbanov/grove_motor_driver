@@ -13,15 +13,9 @@
 import time
 import sys
 
-import Jetson.GPIO as GPIO
 import smbus
 
-# use the bus that matches your raspi version
-rev = GPIO.RPI_REVISION
-if rev == 2 or rev == 3:
-    bus = smbus.SMBus(1)
-else:
-    bus = smbus.SMBus(0)
+bus = smbus.SMBus(0)
 
 class GroveMotorDriver:
 
