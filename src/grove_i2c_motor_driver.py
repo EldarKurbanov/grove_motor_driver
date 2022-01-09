@@ -13,7 +13,7 @@
 import time
 import sys
 
-import RPi.GPIO as GPIO
+import Jetson.GPIO as GPIO
 import smbus
 
 # use the bus that matches your raspi version
