@@ -15,7 +15,7 @@ import sys
 
 import smbus
 
-bus = smbus.SMBus(0)
+bus = smbus.SMBus(8)
 
 class GroveMotorDriver:
 
