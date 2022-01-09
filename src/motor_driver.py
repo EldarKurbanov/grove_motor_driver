@@ -30,14 +30,14 @@ class MotorDriver:
         if (msg.data > 0):
             self.motor['left']['dir'] = 0b10
             self.motor['left']['val'] = min(msg.data, 100)
-            rospy.logdebug(f"Left forward: {self.motor['left']['val']}")
+            #rospy.logdebug(f"Left forward: {self.motor['left']['val']}")
         elif (msg.data < 0):
             self.motor['left']['dir'] = 0b01
             self.motor['left']['val'] = min(-msg.data, 100)
-            rospy.logdebug(f"Left backward: {self.motor['left']['val']}")
+            #rospy.logdebug(f"Left backward: {self.motor['left']['val']}")
         else:
             self.motor['left']['val'] = 0
-            rospy.logdebug(f"Left stop: {self.motor['left']['val']}")
+            #rospy.logdebug(f"Left stop: {self.motor['left']['val']}")
 
         self.update_motors()
 
@@ -47,14 +47,14 @@ class MotorDriver:
         if (msg.data > 0):
             self.motor['right']['dir'] = 0b01
             self.motor['right']['val'] = min(msg.data, 100)
-            rospy.logdebug(f"Right forward: {self.motor['right']['val']}")
+            #rospy.logdebug(f"Right forward: {self.motor['right']['val']}")
         elif (msg.data < 0):
             self.motor['right']['dir'] = 0b10
             self.motor['right']['val'] = min(-msg.data, 100)
-            rospy.logdebug(f"Right backward: {self.motor['right']['val']}")
+            #rospy.logdebug(f"Right backward: {self.motor['right']['val']}")
         else:
             self.motor['right']['val'] = 0
-            rospy.logdebug(f"Right stop: {self.motor['right']['val']}")
+            #rospy.logdebug(f"Right stop: {self.motor['right']['val']}")
 
         self.update_motors()
 
@@ -65,7 +65,7 @@ class MotorDriver:
         right = self.motor['right']['val']
         self.motor_driver.MotorDirectionSet(direction)
         self.motor_driver.MotorSpeedSetAB(right, left)
-        rospy.logdebug(f"Direction {direction:b}, left: {left}, right: {right}")
+        #rospy.logdebug(f"Direction {direction:b}, left: {left}, right: {right}")
 
     def stop_motors(self):
         self.motor_driver.MotorSpeedSetAB(0, 0)
